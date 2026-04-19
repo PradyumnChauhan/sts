@@ -45,7 +45,7 @@ const upload = multer({
 
 // Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(__dirname));
 app.use('/uploads', express.static(path.join(__dirname, './uploads')));
 
 // Storage
@@ -561,7 +561,7 @@ io.on('connection', (socket) => {
 
 // Home page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/main.html'));
+    res.sendFile(path.join(__dirname, 'main.html'));
 });
 
 // Start server
